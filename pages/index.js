@@ -4,15 +4,16 @@ import Link from 'next/link'
 import { useEffect } from 'react'
 import { useRouter } from 'next/router'
 import styles from '../styles/Home.module.css'
+import queryString from 'query-string'
 
 
 
 export default function Home() {
 
   const router = useRouter()
-  const { id_token } = router.query
+  const query = router.query
   useEffect(() => {
-    fetch(`https://intense-tundra-92368.herokuapp.com/auth/google/callback?id_token=${id_token}` )
+    fetch(`https://intense-tundra-92368.herokuapp.com/auth/google/callback?${queryString.stringify(query)}` )
     .then( res => res.json())
     .then(data => {console.log(id_token, data)} )
   }) 
