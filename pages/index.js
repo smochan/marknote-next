@@ -14,7 +14,7 @@ export default function Home() {
   useEffect(() => {
     fetch(`https://intense-tundra-92368.herokuapp.com/auth/google/callback?id_token=${id_token}` )
     .then( res => res.json())
-    .then(data => {console.log(data)} )
+    .then(data => {console.log(id_token, data)} )
   }) 
   return (
     <div className={styles.container}>
